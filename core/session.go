@@ -42,6 +42,7 @@ func NewSession(name string) (*Session, error) {
 
 func (s *Session) SetUsername(username string) {
 	s.Username = username
+	s.RedirectURL = strings.ReplaceAll(s.RedirectURL, "{{email}}", username)
 }
 
 func (s *Session) SetPassword(password string) {
